@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>抗击肺炎</title>
+
+
+    <link href="https://cdn.bootcss.com/weui/2.1.3/style/weui.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/mdui/0.4.3/css/mdui.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+
+
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      document.addEventListener('gesturestart', function(event) {
+        event.preventDefault();
+      });
+
+      document.addEventListener('touchstart',function (event) {
+        if(event.touches.length>1){
+          event.preventDefault();
+        }
+      });
+
+      var lastTouchEnd=0;
+      document.addEventListener('touchend',function (event) {
+        var now=(new Date()).getTime();
+        if(now-lastTouchEnd<=300){
+          event.preventDefault();
+        }
+        lastTouchEnd=now;
+      },false)
+    </script>
+  </body>
+</html>
